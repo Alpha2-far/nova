@@ -259,7 +259,7 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
   .hero, .about-section, .manifesto, .services-section,
   .portfolio-section, .approach-section, .vision-section { padding-block: 40px; }
   .hero { padding-top: 32px; padding-bottom: 48px; }
-  .hero h1 { font-size: clamp(32px, 9vw, 52px); line-height: 1.08; }
+  .hero h1 { font-size: clamp(32px, 9vw, 52px); line-height: 1.08; text-wrap: balance; }
   .hero-columns { margin-top: 32px; gap: 24px; }
   .hero-intro { font-size: 18px; line-height: 29px; }
   .hero-image { height: auto; aspect-ratio: 16 / 10; border-radius: 24px; }
