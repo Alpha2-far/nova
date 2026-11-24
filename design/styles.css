@@ -42,13 +42,13 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
 .brand { display: block; width: 196px; flex-shrink: 0; }
 .brand img { width: 196px; height: 48px; object-fit: contain; }
 .main-nav { display: flex; align-items: center; justify-content: space-between; width: 392px; font-size: 18px; line-height: 24px; font-weight: 500; }
-.main-nav a { transition: color 160ms ease; }
+.main-nav a { transition: color 650ms cubic-bezier(0.5, 1, 0.89, 1); }
 .main-nav a:hover, .main-nav [aria-current="page"] { color: var(--olive); }
 .pages-link { display: flex; align-items: center; gap: 8px; }
 
 /* The pill and its circular arrow form one keyboard-accessible link. */
 .cta { display: inline-flex; align-items: center; width: fit-content; height: 60px; flex-shrink: 0; font-size: 18px; line-height: 24px; font-weight: 500; }
-.cta-label { display: flex; height: 60px; align-items: center; justify-content: center; padding-inline: 28px; border-radius: 40px; background: var(--ink); color: var(--sage); transition: background-color 160ms ease; }
+.cta-label { display: flex; height: 60px; align-items: center; justify-content: center; padding-inline: 28px; border-radius: 40px; background: var(--ink); color: var(--sage); transition: background-color 650ms cubic-bezier(0.5, 1, 0.89, 1), color 650ms cubic-bezier(0.5, 1, 0.89, 1); }
 .cta-icon { display: flex; width: 60px; height: 60px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: var(--sage); color: var(--ink); }
 .cta .icon { transition: transform 160ms ease; }
 .cta:hover .cta-label { background: #394633; }
@@ -68,7 +68,7 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
 .hero-detail { width: 100%; height: 234px; object-fit: cover; border-radius: 24px; }
 .hero-image { width: 100%; height: 430px; object-fit: cover; border-radius: 32px; }
 .hero-signature { display: flex; align-items: center; gap: 24px; padding-top: 56px; }
-.signature-mark { display: flex; width: 72px; height: 72px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: var(--sage); color: var(--olive); font-size: 40px; line-height: 48px; font-weight: 600; }
+.signature-mark { display: flex; width: 72px; height: 72px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: var(--sage); color: var(--olive); font-size: 40px; line-height: 48px; font-weight: 600; transition: transform 650ms ease; }
 .signature-title { font-size: 22px; line-height: 28px; font-weight: 600; }
 .signature-subtitle { padding-top: 12px; font-size: 18px; line-height: 24px; color: var(--muted); }
 
@@ -95,8 +95,8 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
 .services-heading { display: flex; height: 96px; align-items: flex-start; justify-content: space-between; }
 .eyebrow { font-size: 16px; line-height: 24px; color: var(--olive); }
 .services-heading h2 { font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: -0.025em; }
-.service-row { display: grid; grid-template-columns: minmax(0, 592fr) 48px minmax(0, 424fr) 56px; gap: 32px; align-items: center; min-height: 152px; padding-inline: 40px; border-bottom: 1px solid var(--line); }
-.service-row h3 { font-size: 30px; line-height: 40px; font-weight: 500; letter-spacing: -0.025em; transition: color 160ms ease; }
+.service-row { position: relative; display: grid; grid-template-columns: minmax(0, 592fr) 48px minmax(0, 424fr) 56px; gap: 32px; align-items: center; min-height: 152px; padding-inline: 40px; border-bottom: 1px solid var(--line); }
+.service-row h3 { font-size: 30px; line-height: 40px; font-weight: 500; letter-spacing: -0.025em; transition: color 650ms ease, transform 800ms cubic-bezier(0.44, 0, 0.56, 1); }
 .service-number { font-size: 24px; line-height: 32px; color: var(--muted); }
 .service-arrow { grid-column: 4; display: flex; width: 56px; height: 56px; align-items: center; justify-content: center; border-radius: 50%; background: var(--card); color: var(--muted); transition: background-color 160ms ease, color 160ms ease; }
 .service-row:hover h3 { color: var(--olive); }
@@ -110,8 +110,8 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
 .section-intro { font-size: 20px; line-height: 28px; color: var(--muted); }
 .portfolio-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 100px 80px; margin-top: 36px; }
 .project-card { min-height: 574px; }
-.project-media { display: block; overflow: hidden; border-radius: 24px; }
-.project-media img { width: 100%; height: 474px; object-fit: cover; transition: transform 250ms ease; }
+.project-media { position: relative; display: block; overflow: hidden; border-radius: 24px; }
+.project-media img { width: 100%; height: 474px; object-fit: cover; transition: transform 1100ms cubic-bezier(0.44, 0, 0.56, 1); }
 .project-media:hover img { transform: scale(1.025); }
 .project-caption { padding-top: 24px; }
 .project-caption h3 { font-size: 26px; line-height: 36px; font-weight: 500; letter-spacing: -0.025em; }
@@ -165,6 +165,66 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
 .footer-contact a { font-size: 17px; line-height: 28px; overflow-wrap: anywhere; }
 .footer-bottom { display: flex; flex: 1; align-items: flex-end; justify-content: space-between; border-top: 1px solid #495444; font-size: 16px; line-height: 24px; color: var(--footer-muted); }
 .site-footer a:focus-visible { outline-color: var(--sage); }
+
+/* Innovix motion vocabulary, slowed for NOMA. No layout property is animated. */
+:root { --motion-ease: cubic-bezier(0.5, 1, 0.89, 1); }
+.reveal {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 60px), 0);
+  transition: opacity var(--reveal-duration, 1.6s) var(--motion-ease), transform var(--reveal-duration, 1.6s) var(--motion-ease);
+}
+.reveal--right { --reveal-x: 50px; --reveal-y: 0px; }
+.reveal--left { --reveal-x: -50px; --reveal-y: 0px; }
+.reveal--rise { --reveal-y: 50px; }
+.reveal--fade { --reveal-y: 0px; }
+.service-row.reveal { transition-property: opacity, transform, background-color; transition-duration: 1.6s, 1.6s, 800ms; transition-timing-function: var(--motion-ease), var(--motion-ease), cubic-bezier(0.44, 0, 0.56, 1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.hero-image.reveal, .about-statement.reveal { --reveal-duration: 1.8s; }
+.about-collage.reveal { --reveal-duration: 2s; }
+.collage-front.reveal { --reveal-duration: 1.8s; }
+.reveal.reveal--instant { opacity: 1; transform: none; transition: none; }
+html:not(.motion-ready) .reveal { opacity: 1; transform: none; transition: none; }
+
+.motion-word { display: inline-block; white-space: nowrap; }
+.motion-char { display: inline-block; opacity: 1; transform: none; transition: opacity 1.2s var(--motion-ease), transform 1.2s var(--motion-ease); transition-delay: var(--char-delay, 0ms); }
+.motion-ready .text-reveal:not(.is-visible) .motion-char { opacity: 0; transform: translateY(10px); }
+.text-reveal.reveal--instant .motion-char { opacity: 1; transform: none; transition: none; }
+.count-value .count-digits { font: inherit; letter-spacing: inherit; color: inherit; }
+
+/* The outgoing arrow is replaced by a second one entering diagonally. */
+.cta-icon.motion-arrows, .service-arrow.motion-arrows { position: relative; overflow: hidden; }
+.motion-arrows > .icon { transition: transform 650ms var(--motion-ease), opacity 650ms var(--motion-ease); }
+.motion-arrows > .arrow-copy { position: absolute; left: 50%; top: 50%; transform: translate(calc(-50% - 24px), calc(-50% + 24px)); opacity: 0; }
+.project-media::after { content: ""; position: absolute; inset: 0; background: var(--ink); opacity: 0; pointer-events: none; transition: opacity 900ms cubic-bezier(0.44, 0, 0.56, 1); }
+.project-hover-arrow { position: absolute; z-index: 1; left: 50%; top: 50%; display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: var(--sage); color: var(--ink); transform: translate(-50%, -50%); opacity: 0; pointer-events: none; transition: opacity 900ms cubic-bezier(0.44, 0, 0.56, 1); }
+.service-preview { position: absolute; z-index: 1; left: 52%; top: 50%; width: 200px; height: 230px; object-fit: cover; border-radius: 16px; transform: translate(-50%, -50%) rotate(0deg); opacity: 0; pointer-events: none; transition: opacity 800ms ease, transform 900ms cubic-bezier(0.44, 0, 0.56, 1); }
+.vision-media img { transition: transform 1100ms cubic-bezier(0.44, 0, 0.56, 1); }
+
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover .motion-arrows > .icon:not(.arrow-copy), .cta:focus-visible .motion-arrows > .icon:not(.arrow-copy),
+  .service-row:hover .motion-arrows > .icon:not(.arrow-copy), .service-row:focus-visible .motion-arrows > .icon:not(.arrow-copy) { transform: translate(24px, -24px); opacity: 0; }
+  .cta:hover .motion-arrows > .arrow-copy, .cta:focus-visible .motion-arrows > .arrow-copy,
+  .service-row:hover .motion-arrows > .arrow-copy, .service-row:focus-visible .motion-arrows > .arrow-copy { transform: translate(-50%, -50%); opacity: 1; }
+  .hero-signature:hover .signature-mark { transform: rotate(-5deg); }
+  .service-row:hover, .service-row:focus-visible { z-index: 1; background: var(--ink); }
+  .service-row:hover h3, .service-row:focus-visible h3 { color: var(--sage); transform: translateX(6px); }
+  .service-row:hover .service-number, .service-row:focus-visible .service-number { color: var(--sage); }
+  .service-row:hover .service-preview, .service-row:focus-visible .service-preview { opacity: 1; transform: translate(-50%, -50%) rotate(7deg); }
+  .project-card:hover .project-media img, .project-card:focus-within .project-media img { transform: scale(1.1); }
+  .project-card:hover .project-media::after, .project-card:focus-within .project-media::after { opacity: 0.6; }
+  .project-card:hover .project-hover-arrow, .project-card:focus-within .project-hover-arrow { opacity: 1; }
+  .vision-card:hover .vision-media img { transform: scale(1.1); }
+}
+
+/* The reference carousel is manual: no autoplay and no forced dragging. */
+.motion-carousel-viewport { width: 100%; overflow: hidden; margin-top: 56px; }
+.approach-grid.motion-carousel-track { display: flex; gap: 20px; margin-top: 0; }
+.motion-carousel-track > .approach-card { flex: 0 0 var(--slide-width); min-width: 0; }
+.direction-motif button { display: flex; width: 52px; height: 52px; align-items: center; justify-content: center; padding: 0; border: 1px solid #abb2a4; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; transition: background-color 500ms ease, transform 250ms ease; }
+.direction-motif button:hover { background: var(--sage); }
+.direction-motif button:active { transform: scale(0.94); }
+.direction-motif button:focus-visible { outline: 2px solid var(--olive); outline-offset: 4px; }
+.direction-motif button:disabled { opacity: 0.5; cursor: default; }
 
 /* Compact desktop and tablet: let content determine section heights. */
 @media (max-width: 1199px) {
@@ -259,7 +319,7 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
   .hero, .about-section, .manifesto, .services-section,
   .portfolio-section, .approach-section, .vision-section { padding-block: 40px; }
   .hero { padding-top: 32px; padding-bottom: 48px; }
-  .hero h1 { font-size: clamp(32px, 9vw, 52px); line-height: 1.08; text-wrap: balance; }
+  .hero h1 { font-size: clamp(32px, 9vw, 52px); line-height: 1.08; }
   .hero-columns { margin-top: 32px; gap: 24px; }
   .hero-intro { font-size: 18px; line-height: 29px; }
   .hero-image { height: auto; aspect-ratio: 16 / 10; border-radius: 24px; }
@@ -330,7 +390,27 @@ a:focus-visible { outline: 2px solid var(--olive); outline-offset: 6px; border-r
   .vision-copy h3 { font-size: 20px; line-height: 28px; }
 }
 
+@media (max-width: 1199px) {
+  .motion-carousel-viewport { margin-top: 32px; }
+}
+@media (max-width: 1023px) {
+  .motion-ready .reveal--right, .motion-ready .reveal--left { --reveal-x: 0px; --reveal-y: 50px; }
+}
+
+@media (hover: none) {
+  .project-media:hover img, .cta:hover .icon { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
+  .reveal, .motion-ready .text-reveal .motion-char { opacity: 1 !important; transform: none !important; transition-delay: 0ms !important; }
+  .project-card:hover .project-media img, .project-card:focus-within .project-media img,
+  .project-media:hover img, .vision-card:hover .vision-media img, .cta:hover .icon,
+  .hero-signature:hover .signature-mark, .service-row:hover h3,
+  .service-row:focus-visible h3, .direction-motif button:active { transform: none !important; }
+  .cta:hover .motion-arrows > .icon:not(.arrow-copy), .cta:focus-visible .motion-arrows > .icon:not(.arrow-copy),
+  .service-row:hover .motion-arrows > .icon:not(.arrow-copy), .service-row:focus-visible .motion-arrows > .icon:not(.arrow-copy) { transform: none !important; opacity: 1 !important; }
+  .motion-arrows > .arrow-copy { opacity: 0 !important; }
+  .service-preview { display: none; }
 }
